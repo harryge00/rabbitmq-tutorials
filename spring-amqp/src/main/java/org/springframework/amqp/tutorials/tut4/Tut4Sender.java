@@ -15,7 +15,7 @@
  */
 package org.springframework.amqp.tutorials.tut4;
 
-import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -33,18 +33,18 @@ public class Tut4Sender {
 	private RabbitTemplate template;
 
 	@Autowired
-	private DirectExchange direct;
+	private TopicExchange direct;
 
 	AtomicInteger index = new AtomicInteger(0);
 
 	AtomicInteger count = new AtomicInteger(0);
 
-	private final String[] keys = {"orange", "black", "green"};
+	private final String[] keys = {"topic.sync_center.hr.basic"};
 
 	@Scheduled(fixedDelay = 1000, initialDelay = 500)
 	public void send() {
 		StringBuilder builder = new StringBuilder("Hello to ");
-		if (this.index.incrementAndGet() == 3) {
+		if (this.index.incrementAndGet() == 1) {
 			this.index.set(0);
 		}
 		String key = keys[this.index.get()];

@@ -23,7 +23,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
  * @author Scott Deeg
  * @author Wayne Lund
  */
-@RabbitListener(queues = "hello")
+@RabbitListener(queues = "hr.basic", concurrency = "200")
 public class Tut1Receiver {
 
 	@RabbitHandler

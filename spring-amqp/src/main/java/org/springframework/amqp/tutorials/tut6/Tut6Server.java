@@ -23,7 +23,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
  */
 public class Tut6Server {
 
-	@RabbitListener(queues = "tut.rpc.requests")
+	@RabbitListener(queues = "hr.basic")
 	// @SendTo("tut.rpc.replies") used when the client doesn't set replyTo.
 	public int fibonacci(int n) {
 		System.out.println(" [x] Received request for " + n);

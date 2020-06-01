@@ -34,6 +34,7 @@ public class Tut1Sender {
 	
 	@Scheduled(fixedDelay = 1000, initialDelay = 500)
 	public void send() {
+		System.out.println("Going to send");
 		String message = "Hello World!";
 		this.template.convertAndSend(queue.getName(), message);
 		System.out.println(" [x] Sent '" + message + "'");

@@ -37,7 +37,7 @@ public class Tut6Config {
 
 		@Bean
 		public DirectExchange exchange() {
-			return new DirectExchange("tut.rpc");
+			return new DirectExchange("sync_center_exchange");
 		}
 
 		@Bean
@@ -52,12 +52,12 @@ public class Tut6Config {
 
 		@Bean
 		public Queue queue() {
-			return new Queue("tut.rpc.requests");
+			return new Queue("hr.basic");
 		}
 
 		@Bean
 		public DirectExchange exchange() {
-			return new DirectExchange("tut.rpc");
+			return new DirectExchange("sync_center_exchange");
 		}
 
 		@Bean
